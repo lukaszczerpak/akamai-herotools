@@ -1,0 +1,3 @@
+path: /products/*
+vanity_path: /products
+origin: green
