@@ -16,6 +16,7 @@ TEMPLATE_PRP_VER = None
 DOMAIN = None
 EH_NAME = None
 EH_ID = None
+TID = None
 
 
 def click_defaults(func):
@@ -36,13 +37,15 @@ def click_defaults(func):
         global DOMAIN
         global EH_NAME
         global EH_ID
+        global TID
 
         try:
-            contract, group, property, version, product, domain, eh_name, eh_id = \
-                re.match(r"^(?:v1)/(?:ctr_)?([^/]+)/(?:grp_)?([0-9]+)/(?:prp_)?([0-9]+)/([0-9]+)/([^/]+)/([^/]+)/([^/]+)/(?:ehn_)?([0-9]+)$", akamai_settings).groups()
+            training_id, contract, group, property, version, product, domain, eh_name, eh_id = \
+                re.match(r"^(?:v1)/([^/]+)/(?:ctr_)?([^/]+)/(?:grp_)?([0-9]+)/(?:prp_)?([0-9]+)/([0-9]+)/([^/]+)/([^/]+)/([^/]+)/(?:ehn_)?([0-9]+)$", akamai_settings).groups()
         except:
             raise click.BadParameter("Invalid settings")
 
+        TID = training_id
         CONTRACT_ID = "ctr_" + contract
         GROUP_ID = "grp_" + group
         GROUP_ID_INT = int(group)
@@ -64,9 +67,10 @@ class LabSupport(object):
         self.akamai_session = akamaiopen.OpenClient(host, access_token, client_token, client_secret)
 
     def get_policy_name(self, user_id):
-        return f"hero_{user_id}"
+        return f"hero_{TID}_{user_id}"
 
     def get_config_name(self, user_id):
+        global TID
         return f"hero_{user_id}"
 
     def get_hostname(self, user_id):
