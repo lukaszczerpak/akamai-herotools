@@ -5,7 +5,7 @@ with open('README.md') as readme_file:
 
 setup(name="herotools",
       version="1.0.0",
-      packages=['akamaiopen', 'akamaiopen.cloudlets', 'akamaiopen.cloudlets.matches', 'endpoints', 'cloudlets', 'sa2020'],
+      packages=['akamaiopen', 'akamaiopen.cloudlets', 'akamaiopen.cloudlets.matches', 'endpoints', 'cloudlets', 'sa2020', 'akau'],
       entry_points={
           'console_scripts': [
               'generate-prc-rules=endpoints.cli:generate_rules',
@@ -13,6 +13,7 @@ setup(name="herotools",
               'cloudlet-policy-update=cloudlets.cli:update_policy',
               'cloudlet-policy-activate=cloudlets.cli:activate_policy_version',
               'sa2020-lab-setup=sa2020.cli:setup_lab',
+              'akau-lab-setup=akau.cli:setup_lab',
           ],
       },
       install_requires=['Click==7.0','edgegrid-python==1.1.1','jsonpath-ng==1.4.3',
