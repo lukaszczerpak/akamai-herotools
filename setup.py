@@ -18,6 +18,6 @@ setup(name="herotools",
       },
       install_requires=['Click==7.0','edgegrid-python==1.1.1','jsonpath-ng==1.4.3',
                         'jsonschema==3.0.0','requests==2.20.0','six==1.11.0',
-                        'urljoin==1.0.0','urllib3==1.24.2','PyYAML==5.1','jsonpath-ng==1.4.3'],
+                        'urljoin==1.0.0','urllib3==1.24.2','PyYAML==5.4','jsonpath-ng==1.4.3'],
       description="Helper scripts for SA2020 class - CI/CD from Zero to Hero on Akamai Platform",
       long_description=readme)
