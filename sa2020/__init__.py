@@ -15,8 +15,8 @@ CLOUDLET_ID = 7
 TEMPLATE_PRP_ID = "prp_586668"
 TEMPLATE_PRP_VER = 1
 DOMAIN = "labstep.dance"
-EH_NAME = "labs.webperf.it.edgesuite.net"
-EH_ID = "ehn_3246703"
+EH_NAME = "hero.akademo.it.edgesuite.net"
+EH_ID = "ehn_4928729"
 
 
 def click_defaults(func):
